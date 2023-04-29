@@ -21,7 +21,7 @@ function Data() {
   }
 
   function saveUser(user) {
-    axios.put(`${SERVER_URL}api/data/${user.id}`, user)
+    axios.put(`${SERVER_URL}/api/update/${user.id}`, user)
       .then(res => {
         console.log(res.data);
         setSelectedUser(null);

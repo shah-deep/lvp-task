@@ -32,7 +32,7 @@ app.get('/api/data', async (req, res) => {
 });
 
 
-app.post('/api/data', async (req, res) => {
+app.post('/api/insert', async (req, res) => {
     const { name, email, phone } = req.body;
     try {
         const { rows } = await pool.query(
@@ -46,7 +46,7 @@ app.post('/api/data', async (req, res) => {
     }
 });
 
-app.put('/api/data/:id', (req, res) => {
+app.put('/api/update/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const { name, email, phone } = req.body;
   pool.connect((err, client, done) => {
@@ -73,7 +73,7 @@ app.put('/api/data/:id', (req, res) => {
   });
 });
 
-app.delete('/api/data/:id', (req, res) => {
+app.delete('/api/delete/:id', (req, res) => {
     const id = parseInt(req.params.id);
     pool.connect((err, client, done) => {
       if (err) {

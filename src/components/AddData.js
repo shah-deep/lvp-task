@@ -9,7 +9,7 @@ const AddData = ({ onAdd }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const result = await axios.post(`${SERVER_URL}/api/data`, { name, email, phone });
+    const result = await axios.post(`${SERVER_URL}/api/insert`, { name, email, phone });
     onAdd(result.data);
     setName('');
     setEmail('');

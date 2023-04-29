@@ -32,7 +32,7 @@ const App = () => {
   };
 
   const handleDelete = async id => {
-    await axios.delete(`${SERVER_URL}/api/data/${id}`);
+    await axios.delete(`${SERVER_URL}/api/delete/${id}`);
     setData(data.filter(item => item.id !== id));
   };
 
