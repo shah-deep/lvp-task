@@ -7,7 +7,7 @@ import AddData from './components/AddData';
 import EditData from './components/EditData';
 import './App.css';
 import './style.css';
-
+import { SERVER_URL } from './config';
 
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
   }, []);
 
   const fetchData = async () => {
-    const result = await axios('http://localhost:5000/api/data');
+    const result = await axios(`${SERVER_URL}/api/data`);
     setData(result.data);
   };
 
@@ -32,7 +32,7 @@ const App = () => {
   };
 
   const handleDelete = async id => {
-    await axios.delete(`http://localhost:5000/api/data/${id}`);
+    await axios.delete(`${SERVER_URL}/api/data/${id}`);
     setData(data.filter(item => item.id !== id));
   };
 

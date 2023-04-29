@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import EditData from './EditData';
 import DeleteData from './DeleteData';
+import { SERVER_URL } from '../config';
 
 function Data() {
   const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ function Data() {
   }
 
   function saveUser(user) {
-    axios.put(`http://localhost:5000/api/data/${user.id}`, user)
+    axios.put(`${SERVER_URL}api/data/${user.id}`, user)
       .then(res => {
         console.log(res.data);
         setSelectedUser(null);
@@ -31,7 +32,7 @@ function Data() {
 
 
   function refreshData() {
-    axios.get('http://localhost:5000/api/data')
+    axios.get(`${SERVER_URL}/api/data`)
       .then(res => setData(res.data))
       .catch(err => console.log(err));
   }
